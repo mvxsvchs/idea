@@ -6,13 +6,15 @@
         </header>
 
         <div class="mt-10">
-            @forelse($ideas as $idea)
-                <div>
-                    show the card
-                </div>
-            @empty
-                <p>No ideas at this time.</p>
-            @endforelse
+            <div class="grid md:grid-cols-2 gap-6">
+                @forelse($ideas as $idea)
+                    <div class="border border-border-dark rounded-lg bg-card p-4 md:text-sm block">
+                        <h3>{{ $idea->title }}</h3>
+                    </div>
+                @empty
+                    <p>No ideas at this time.</p>
+                @endforelse
+            </div>
         </div>
     </div>
 </x-layout>

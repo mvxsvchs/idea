@@ -1,9 +1,32 @@
 @import 'tailwindcss';
 
+@import "./components/btn.css" layer(components);
+@import "./components/form.css" layer(components);
+
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-background-dark: oklch(0.17 0.02 285);
+    --color-foreground-dark: oklch(0.96 0.01 285);
+    --color-card-dark: oklch(0.21 0.025 285);
+    --color-primary-dark: oklch(0.82 0.09 295);
+    --color-primary-foreground-dark: oklch(0.22 0.03 285);
+    --color-border-dark: oklch(0.30 0.025 285);
+    --color-input-dark: oklch(0.30 0.025 285);
+    --color-muted-foreground-dark: oklch(0.70 0.03 285);
+
+    --color-background-light: oklch(0.98 0.008 290);
+    --color-foreground-light: oklch(0.25 0.03 285);
+    --color-card-light: oklch(1 0 0);
+    --color-primary-light: oklch(0.78 0.10 295);
+    --color-primary-foreground-light: oklch(0.25 0.04 285);
+    --color-border-light: oklch(0.92 0.015 290);
+    --color-input-light: oklch(0.92 0.015 290);
+    --color-muted-foreground-light: oklch(0.55 0.03 285);
+
 }

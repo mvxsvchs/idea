@@ -1,58 +1,249 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💡 Idea
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Idea** is eine webbasierte Anwendung zum Sammeln, Organisieren und Verwalten von Ideen. Das Projekt wird mit Laravel entwickelt und dient dazu, die Grundlagen der modernen Webentwicklung praktisch zu erlernen.
 
-## About Laravel
+> 🎓 **Lernprojekt:** Dieses Projekt entsteht im Rahmen des Laracasts-Kurses [Laravel From Scratch (2026 Edition)](https://laracasts.com/series/laravel-from-scratch-2026) von Jeffrey Way.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📚 Über das Projekt
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ziel dieses Projekts ist es, die im Kurs vermittelten Konzepte praktisch umzusetzen und dabei schrittweise eine Laravel-Anwendung aufzubauen.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Der Kurs behandelt unter anderem Routing, Controller, Datenbanken, Eloquent ORM, Authentifizierung, Autorisierung, Testing und Deployment. Die Anwendung wird im Verlauf des Lernprozesses kontinuierlich erweitert.
 
-## Learning Laravel
+## ✨ Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Benutzerregistrierung** – neue Benutzerkonten erstellen.
+- **Login und Logout** – Benutzer authentifizieren und Sitzungen verwalten.
+- **Persönliche Ideenübersicht** – eigene Ideen anzeigen.
+- **Ideendetails** – einzelne Ideen aufrufen.
+- **Datenbankanbindung** – Anwendungsdaten mit Laravel und Eloquent verwalten.
+- **Formularvalidierung** – Benutzereingaben serverseitig überprüfen.
+- **Wiederverwendbare Komponenten** – gemeinsame UI-Elemente mit Blade erstellen.
+- **Modernes Frontend** – Gestaltung mit Tailwind CSS und interaktive Elemente mit Alpine.js.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*Hinweis: Der Funktionsumfang befindet sich in Entwicklung. Nicht alle geplanten Funktionen sind bereits vollständig implementiert.*
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🛠️ Technologien
 
-## Agentic Development
+| Technologie | Verwendung |
+|---|---|
+| PHP | Serverseitige Programmlogik |
+| Laravel | PHP-Webframework |
+| Blade | Template-Engine |
+| SQLite | Datenbank für die lokale Entwicklung |
+| Tailwind CSS | Gestaltung der Benutzeroberfläche |
+| Alpine.js | Leichte JavaScript-Interaktivität |
+| Vite | Frontend-Entwicklung und Asset-Build |
+| Composer | Verwaltung der PHP-Abhängigkeiten |
+| npm | Verwaltung der Frontend-Abhängigkeiten |
+| Git und GitHub | Versionsverwaltung und Quellcode-Hosting |
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🚀 Installation
+
+### Voraussetzungen
+
+Installiere folgende Werkzeuge, bevor du das Projekt startest:
+
+- [PHP](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Node.js und npm](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+
+Die benötigte PHP-Version und weitere Abhängigkeiten richten sich nach der Projektkonfiguration.
+
+### 1. Repository klonen
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/mvxsvchs/idea.git
+cd idea
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. PHP-Abhängigkeiten installieren
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Umgebungsdatei erstellen
 
-## Code of Conduct
+Kopiere die Beispielkonfiguration:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Unter Windows PowerShell kannst du stattdessen folgenden Befehl verwenden:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```powershell
+Copy-Item .env.example .env
+```
 
-## License
+Generiere den Anwendungsschlüssel:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+### 4. Datenbank konfigurieren
+
+Das Projekt kann lokal mit SQLite betrieben werden.
+
+Erstelle die Datenbankdatei, falls sie noch nicht existiert:
+
+```bash
+php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
+```
+
+Stelle sicher, dass in der `.env`-Datei die SQLite-Verbindung konfiguriert ist:
+
+```dotenv
+DB_CONNECTION=sqlite
+```
+
+Führe die Datenbankmigrationen aus:
+
+```bash
+php artisan migrate
+```
+
+### 5. Frontend-Abhängigkeiten installieren
+
+Installiere die benötigten npm-Pakete:
+
+```bash
+npm install
+```
+
+Erstelle die Frontend-Assets:
+
+```bash
+npm run build
+```
+
+### 6. Anwendung starten
+
+Starte den lokalen Laravel-Entwicklungsserver:
+
+```bash
+php artisan serve
+```
+
+Öffne die angezeigte URL im Browser. Standardmäßig erreichst du die Anwendung unter:
+
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## 💻 Entwicklung
+
+Während der Entwicklung kannst du Vite im Entwicklungsmodus starten:
+
+```bash
+npm run dev
+```
+
+Starte den Laravel-Server in einem zweiten Terminal:
+
+```bash
+php artisan serve
+```
+
+Vite stellt dabei die Frontend-Entwicklungsumgebung bereit.
+
+## 🧪 Tests
+
+Die vorhandenen automatisierten Tests lassen sich mit folgendem Befehl ausführen:
+
+```bash
+php artisan test
+```
+
+Die Tests helfen dabei, das erwartete Verhalten der Anwendung zu überprüfen und Fehler frühzeitig zu erkennen.
+
+## 📁 Projektstruktur
+
+Die wichtigsten Verzeichnisse und Dateien des Laravel-Projekts:
+
+```text
+idea/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/       # Controller und Anwendungslogik
+│   │   └── Requests/          # Request-Validierung
+│   ├── Models/                # Eloquent-Modelle
+│   └── Providers/             # Service Provider
+├── bootstrap/                  # Laravel-Bootstrap
+├── config/                     # Anwendungskonfiguration
+├── database/
+│   ├── migrations/             # Datenbankschema
+│   ├── factories/              # Model-Factories
+│   └── seeders/                # Beispieldaten
+├── public/                     # Öffentlich erreichbare Dateien
+├── resources/
+│   ├── css/                    # CSS und Tailwind
+│   ├── js/                     # JavaScript
+│   └── views/                  # Blade-Templates
+├── routes/
+│   └── web.php                 # Web-Routen
+├── storage/                    # Logs und gespeicherte Dateien
+├── tests/                      # Automatisierte Tests
+├── .env.example                # Beispiel für Umgebungsvariablen
+├── artisan                     # Laravel-Kommandozeile
+├── composer.json               # PHP-Abhängigkeiten
+├── package.json                # Frontend-Abhängigkeiten
+└── vite.config.js              # Vite-Konfiguration
+```
+
+## 🎯 Lernziele
+
+Durch die praktische Arbeit an Idea werden insbesondere folgende Themen vertieft:
+
+- Grundlagen von Laravel und MVC-Architektur
+- Routing, Controller und HTTP-Requests
+- Blade-Templates und wiederverwendbare Komponenten
+- Datenbankmigrationen und Eloquent ORM
+- Beziehungen zwischen Datenbankmodellen
+- Benutzerregistrierung und Authentifizierung
+- Validierung von Formularen und Fehlerbehandlung
+- Frontend-Entwicklung mit Tailwind CSS und Alpine.js
+- Schreiben und Ausführen automatisierter Tests
+- Versionsverwaltung mit Git und GitHub
+
+## 🗺️ Geplante Weiterentwicklung
+
+Im Verlauf des Lernprojekts können weitere Funktionen ergänzt und bestehende Bereiche verbessert werden, beispielsweise:
+
+- Ideen erstellen, bearbeiten und löschen
+- Ideen nach Status filtern
+- Benutzerbezogene Zugriffsrechte umsetzen
+- Benutzeroberfläche und Barrierefreiheit verbessern
+- Weitere automatisierte Tests schreiben
+- Anwendung für eine produktive Umgebung vorbereiten
+
+## 🔐 Sicherheit
+
+Für die lokale Entwicklung und eine mögliche spätere Veröffentlichung gelten folgende Grundregeln:
+
+- Keine Passwörter, API-Schlüssel oder sonstigen Geheimnisse committen.
+- Die `.env`-Datei nicht in das Git-Repository aufnehmen.
+- Die `.env.example` ausschließlich mit unkritischen Beispielwerten pflegen.
+- Benutzereingaben serverseitig validieren.
+- Zugriffsrechte für benutzerspezifische Daten serverseitig überprüfen.
+
+## 🎓 Kurs und Credits
+
+Dieses Projekt orientiert sich am Kurs:
+
+**[Laravel From Scratch (2026 Edition)](https://laracasts.com/series/laravel-from-scratch-2026)**
+
+- **Plattform:** Laracasts
+- **Instructor:** Jeffrey Way
+- **Ziel:** Laravel durch praktische Übungen und den Aufbau einer vollständigen Anwendung lernen.
+
+Idea ist ein persönliches Lern- und Übungsprojekt. Die Umsetzung wird im Rahmen des Lernprozesses schrittweise entwickelt und erweitert.
+
+## 📄 Lizenz
+
+Für dieses Repository ist derzeit keine Lizenz angegeben. Falls der Quellcode zur Nutzung oder Weiterverbreitung freigegeben werden soll, sollte eine passende `LICENSE`-Datei ergänzt werden.
+
+---
+
+*Built while learning Laravel — one idea at a time.* 💡

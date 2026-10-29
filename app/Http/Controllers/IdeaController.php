@@ -19,13 +19,11 @@ class IdeaController extends Controller
     {
         $user = Auth::user();
 
-        $validStatuses = array_column(IdeaStatus::cases(), 'value');
+        $status = $request->status;
 
-        $validated = $request->validate([
-            'status' => ['nullable', Rule::in($validStatuses)],
-        ]);
-
-        $status = $validated['status'] ?? null;
+        if (! in_array($status, ['pending', 'completed', 'in_progress'])) {
+            $status = null;
+        }
 
         $ideas = $user
             ->ideas()

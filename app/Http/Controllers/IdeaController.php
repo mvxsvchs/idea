@@ -18,7 +18,9 @@ class IdeaController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
+
         $validStatuses = array_column(IdeaStatus::cases(), 'value');
+
         $validated = $request->validate([
             'status' => ['nullable', Rule::in($validStatuses)],
         ]);
@@ -27,7 +29,7 @@ class IdeaController extends Controller
 
         $ideas = $user
             ->ideas()
-            ->when($request->status, fn($query, $status) => $query->where('status', $status))
+            ->when($status, fn($query, $status) => $query->where('status', $status))
             ->get();
 
         return view('idea.index', [

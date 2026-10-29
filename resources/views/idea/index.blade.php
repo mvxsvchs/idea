@@ -12,9 +12,9 @@
                         <h3 class="text-foreground-dark text-lg"> {{ $idea->title }}</h3>
 
                         <div class="mt-1">
-                            <span class="inline-block rounded-full border px-2 py-1 text-xs font-medium bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+                            <x-idea.status-label status="{{ $idea->status }}">
                                 {{ $idea->status->label()}}
-                            </span>
+                            </x-idea.status-label>
                         </div>
 
                         <div class="mt-5 line-clamp-3">{{ $idea->description }}</div>

@@ -21,22 +21,9 @@ class IdeaController extends Controller
             ->when($request->status, fn($query, $status) => $query->where('status', $status))
             ->get();
 
-
-        $counts = Auth::user()->ideas()
-            ->selectRaw('status, count(*) as count')
-            ->groupBy('status')
-            ->pluck('count', 'status');
-
-        $statusCounts = collect(IdeaStatus::cases())
-            ->mapWithKeys(fn($status) => [
-                $status->value => $counts->get($status->value, 0)
-            ])
-            ->put('all', Auth::user()->ideas()->count());
-
-
         return view('idea.index', [
             'ideas' => $ideas,
-            'statusCounts' => $statusCounts,
+            'statusCounts' => Idea::statusCounts(Auth::user()),
         ]);
     }
 

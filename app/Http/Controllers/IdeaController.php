@@ -8,6 +8,7 @@ use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class IdeaController extends Controller
 {
@@ -16,14 +17,22 @@ class IdeaController extends Controller
      */
     public function index(Request $request)
     {
-        $ideas = Auth::user()
+        $user = Auth::user();
+        $validStatuses = array_column(IdeaStatus::cases(), 'value');
+        $validated = $request->validate([
+            'status' => ['nullable', Rule::in($validStatuses)],
+        ]);
+
+        $status = $validated['status'] ?? null;
+
+        $ideas = $user
             ->ideas()
             ->when($request->status, fn($query, $status) => $query->where('status', $status))
             ->get();
 
         return view('idea.index', [
             'ideas' => $ideas,
-            'statusCounts' => Idea::statusCounts(Auth::user()),
+            'statusCounts' => Idea::statusCounts($user),
         ]);
     }
 

@@ -5,6 +5,17 @@
             <p class="text-muted-foreground-dark text-sm mt-2">Capture your thoughts. Make a plan.</p>
         </header>
 
+        <div>
+            <a href="/ideas"
+               class="btn {{ request()->has('status') ? 'btn-outlined' : '' }} ">All</a>
+
+            @foreach(App\IdeaStatus::cases() as $status)
+                <a href="/ideas?status={{ $status->value }}"
+                   class="btn {{ request('status') === $status->value ?'' : 'btn-outlined' }}"> {{ $status->label() }}</a>
+            @endforeach
+
+        </div>
+
         <div class="mt-10 text-muted-foreground-dark">
             <div class="grid md:grid-cols-2 gap-6">
                 @forelse($ideas as $idea)
@@ -13,7 +24,7 @@
 
                         <div class="mt-1">
                             <x-idea.status-label status="{{ $idea->status }}">
-                                {{ $idea->status->label()}}
+                                {{ $idea->status->label() }}
                             </x-idea.status-label>
                         </div>
 

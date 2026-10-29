@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\IdeaStatus;
+use Database\Factories\IdeaFactory;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,16 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 class Idea extends Model
 {
-    /** @use HasFactory<\Database\Factories\IdeaFactory> */
+    /** @use HasFactory<IdeaFactory> */
     use HasFactory;
 
-    protected $casts = [
-        "links" => AsArrayObject::class,
-        "status" => IdeaStatus::class,
-    ];
-
     protected $attributes = [
-        "status" => IdeaStatus::PENDING->value,
+        'status' => IdeaStatus::PENDING->value,
     ];
 
     public static function statusCounts(User $user): Collection
@@ -33,12 +31,11 @@ class Idea extends Model
             ->pluck('count', 'status');
 
         return collect(IdeaStatus::cases())
-            ->mapWithKeys(fn($status) => [
-                $status->value => $counts->get($status->value, 0)
+            ->mapWithKeys(fn ($status) => [
+                $status->value => $counts->get($status->value, 0),
             ])
             ->put('all', Auth::user()->ideas()->count());
     }
-
 
     public function user(): BelongsTo
     {
@@ -48,5 +45,13 @@ class Idea extends Model
     public function steps(): HasMany
     {
         return $this->hasMany(Step::class);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'links' => AsArrayObject::class,
+            'status' => IdeaStatus::class,
+        ];
     }
 }

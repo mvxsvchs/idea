@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -11,23 +13,24 @@ class RegisteredUserController extends Controller
 {
     public function create()
     {
-        return view("auth.register");
+        return view('auth.register');
     }
 
-    public function store(request $request)
+    public function store(Request $request)
     {
         $request->validate([
-            "name" => ["string", "required", "min:3", "max:255"],
-            "email" => ["string", "required", "email", "max:255", Rule::unique("users", "email")],
-            "password" => ["string", "required", "min:8", "max:255"],
+            'name' => ['string', 'required', 'min:3', 'max:255'],
+            'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users', 'email')],
+            'password' => ['string', 'required', 'min:8', 'max:255'],
         ]);
         $user = User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => $request->password, //bcrypt
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password, // bcrypt
         ]);
 
         Auth::login($user);
-        return redirect("/")->with("success", "Registration complete!");
+
+        return redirect('/')->with('success', 'Registration complete!');
     }
 }

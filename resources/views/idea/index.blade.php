@@ -3,6 +3,16 @@
         <header class="py-8 md:py12">
             <h1 class="text-3xl font-bold">Ideas</h1>
             <p class="text-muted-foreground-dark text-sm mt-2">Capture your thoughts. Make a plan.</p>
+
+            <x-card
+                x-data
+                @click="$dispatch('open-modal')"
+                is="button"
+                class="mt-10 cursor-pointer h-32 w-full text-left"
+            >
+                <p>What's the Idea?</p>
+            </x-card>
+
         </header>
 
         <div>

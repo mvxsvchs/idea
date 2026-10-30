@@ -37,9 +37,11 @@
                 <div>
                     <h3 class="font-bold text-xl mt-6">Links</h3>
 
-                    <div>
+                    <div class="mt-3 space-y-2">
                         @foreach($idea->links as $link)
-                            <x-card>{{ $link }}</x-card>
+                            <x-card :href="$link" class="text-primary-dark font-medium flex gap-x-3 items-center">
+                                <x-icons.external></x-icons.external>
+                                {{ $link }}</x-card>
                         @endforeach
                     </div>
                 </div>

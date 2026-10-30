@@ -6,7 +6,7 @@
 
             <x-card
                 x-data
-                @click="$dispatch('open-modal')"
+                @click="$dispatch('open-modal', 'create-idea')"
                 is="button"
                 class="mt-10 cursor-pointer h-32 w-full text-left"
             >
@@ -51,5 +51,24 @@
                 @endforelse
             </div>
         </div>
+
+        <!-- modal -->
+        <div
+            x-data="{show: false, name: 'create-idea'}"
+            x-show="show"
+            @open-modal.window="if($event.detail === name) show = true;"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs"
+            x-transition:enter="duration-1000"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="duration-1000"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+        >
+            <x-card>
+                <p>I am a modal.</p>
+            </x-card>
+        </div>
+
     </div>
 </x-layout>

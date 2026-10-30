@@ -19,17 +19,31 @@
                     <button class="btn btn-outlined text-red-500">Delete</button>
                 </form>
             </div>
-
         </div>
-        <h1 class="font-bold text-4xl">
-            {{ $idea->title }}
-        </h1>
 
-        <x-card class="mt-6">
-            <div class="text-foreground-dark max-w-none cursor-pointer">
-                {{ $idea->description }}
+        <div class="mt-8 space-<-6">
+            <h1 class="font-bold text-4xl">{{ $idea->title }}</h1>
+
+            <div class="mt-2 flex gap-x-3 items-center">
+                <x-idea.status-label :status="$idea->status->value">{{ $idea->status->label() }}</x-idea.status-label>
+                <div class="text-muted-foreground-dark text-sm">{{ $idea->created_at->diffForHumans() }}</div>
             </div>
-        </x-card>
-    </div>
 
+            <x-card class="mt-6">
+                <div class="text-foreground-dark max-w-none cursor-pointer">{{ $idea->description }}</div>
+            </x-card>
+
+            @if ($idea->links->count())
+                <div>
+                    <h3 class="font-bold text-xl mt-6">Links</h3>
+
+                    <div>
+                        @foreach($idea->links as $link)
+                            <x-card>{{ $link }}</x-card>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
 </x-layout>

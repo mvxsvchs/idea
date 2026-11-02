@@ -66,8 +66,9 @@
                     >
                     </x-form.field>
 
-                    <div>
+                    <div class="space-y-2">
                         <label for="status" class="label">Status</label>
+
                         <div class="flex gap-x-3">
                             @foreach(App\IdeaStatus::cases() as $status)
                                 <button
@@ -82,6 +83,8 @@
 
                             <input type="hidden" name="status" :value="status" class="input">
                         </div>
+
+                        <x-form.error name="status"></x-form.error>
                     </div>
 
                     <x-form.field
@@ -91,6 +94,10 @@
                         placeholder="Describe your idea..."
                     >
                     </x-form.field>
+                    <div class="flex justify-end gap-x-5 mt-2">
+                        <button type="button">Cancel</button>
+                        <button type="submit" class="btn">Create</button>
+                    </div>
 
                 </div>
             </form>

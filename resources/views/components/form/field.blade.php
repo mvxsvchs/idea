@@ -26,8 +26,5 @@
             value="{{ old($name) }}"
             {{ $attributes }}>
     @endif
-
-    @error($name)
-    <p class="error">{{ $message }}</p>
-    @enderror
+    <x-form.error name="{{ $name }}"></x-form.error>
 </div>

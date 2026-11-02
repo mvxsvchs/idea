@@ -138,7 +138,9 @@
                                     class="input flex-1"
                                     spellcheck="false"
                                 >
-                                <button type="button" @click="links.push(newLink.trim()); newLink = '';"
+                                <button type="button"
+                                        @click="links.push(newLink.trim()); newLink = '';"
+                                        data-test="submit-new-link-button"
                                         :disabled="newLink.trim().length === 0"
                                         aria-label="Add a new Link"
                                         class="form-muted-icon"

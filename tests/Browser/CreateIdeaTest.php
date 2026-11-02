@@ -10,12 +10,15 @@ it("creates a new idea", function () {
         ->fill("title", "My First Idea")
         ->click("@button-status-completed")
         ->fill("description", "This is my first idea description.")
+        ->fill('@new-link','https://laracasts.com')
+        ->click("@submit-new-link-button")
         ->click("Create")
         ->assertPathIs("/ideas");
 
     expect($user->ideas()->first())->toMatchArray([
-        "title" => "My First Idea",
-        "status" => "completed",
-        "description" => "This is my first idea description.",
+        'title' => 'My First Idea',
+        'status' => 'completed',
+        'description' => 'This is my first idea description.',
+        'links' => ['https://laracasts.com'],
     ]);
 });

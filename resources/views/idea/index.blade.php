@@ -65,6 +65,7 @@
                 }"
                 method="POST"
                 action="{{ route('idea.store') }}"
+                enctype="multipart/form-data"
             >
                 @csrf
 
@@ -100,12 +101,18 @@
                         <x-form.error name="status"></x-form.error>
                     </div>
 
-                    <x-form.field
-                        label="Description"
-                        name="description"
-                        type="textarea"
-                        placeholder="Describe your idea..."
-                    />
+                    <div class="space-y-2">
+                        <label for="description" class="label">Description</label>
+
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Describe your idea..."
+                            class="textarea"
+                        >{{ old('description') }}</textarea>
+
+                        <x-form.error name="description"/>
+                    </div>
 
                     <div class="space-y-2">
                         <label for="image" class="label">Featured Image</label>

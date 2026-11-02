@@ -50,7 +50,8 @@
                                             class="size-5 flex items-center justify-center rounded-lg text-primary-foreground-dark {{ $step->completed ? 'bg-primary-dark' : 'border border-primary-dark' }} border border-primary-dark ">
                                             &check;
                                         </button>
-                                        <span>{{ $step->description }}</span>
+                                        <span
+                                            class="{{ $step->completed ? 'line-through text-muted-foreground-dark':'' }}">{{ $step->description }}</span>
                                     </div>
                                 </form>
                             </x-card>

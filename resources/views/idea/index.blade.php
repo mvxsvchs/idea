@@ -55,7 +55,15 @@
         </div>
 
         <x-modal name="create-idea" title="New Idea">
-            <form x-data="{status: 'pending'}" method="POST" action="{{ route('idea.store') }}">
+            <form
+                x-data="{
+                status: 'pending',
+                newLink: '',
+                links: []
+                }"
+                method="POST"
+                action="{{ route('idea.store') }}"
+            >
                 @csrf
 
                 <div class="space-y-6">
@@ -111,10 +119,15 @@
                                     class="input flex-1"
                                     spellcheck="false"
                                 >
-                                <button type="button" @click="links.push(newLink)">
+                                <button type="button" @click="links.push(newLink.trim()); newLink = '';"
+                                :disabled="newLink.trim().length === 0"
+                                >
                                     <x-icons.close class="rotate-45"/>
                                 </button>
                             </div>
+
+                            <pre x-text="JSON.stringify(links)">
+                            </pre>
                         </fieldset>
                     </div>
 

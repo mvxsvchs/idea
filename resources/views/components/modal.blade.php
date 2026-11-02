@@ -17,14 +17,19 @@
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-{{ $name }}-title"
-    :aria-hidden="!show"
+    aria-hidden="!show"
     tabindex="-1"
     id="modal-{{ $name }}"
 
 >
-    <x-card is="div" @click.away="show = false">
+    <x-card is="div" @click.away="show = false" class="shadow-xl max-w-2xl w-full max-h-[80dvh] overflow-auto">
         <div>
             <h2 id="modal-{{ $name }}-title" class="text-2xl font-bold">{{ $title }}</h2>
+
+            <button @click="show = false" aria-label="Close modal">
+                <x-icons.close />
+            </button>
+
         </div>
 
         <div>

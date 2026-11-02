@@ -8,23 +8,23 @@
 </head>
 <body class="bg-background-dark text-foreground-dark">
 
-    <x-layout.nav/>
+<x-layout.nav/>
 
-    <main class="max-w-7xl mx-auto px-6">
-        {{ $slot}}
-    </main>
+<main class="max-w-7xl mx-auto px-6">
+    {{ $slot}}
+</main>
 
-    @session('success')
-    <div
+@session('success')
+<div
     x-data="{ show: true }"
     x-init="setTimeout(() => show = false, 3000)"
     x-show="show"
     x-transition.opacity.duration.300ms
     class="bg-primary-dark text-primary-foreground-dark px-4 py-3 absolute bottom-4 right-4 rounded-lg"
-    >
-        Testing for Now.
-    </div>
-    @endsession
+>
+    {{ $value }}
+</div>
+@endsession
 
 </body>
 </html>

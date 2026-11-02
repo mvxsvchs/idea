@@ -107,6 +107,13 @@
                         placeholder="Describe your idea..."
                     />
 
+                    <div class="space-y-2">
+                        <label for="image" class="label">Featured Image</label>
+
+                        <input type="file" name="image" accept="image/*">
+                        <x-form.error name="image"/>
+                    </div>
+
                     <div>
                         <fieldset class="space-y-3">
                             <legend class="label">Actionable Steps</legend>

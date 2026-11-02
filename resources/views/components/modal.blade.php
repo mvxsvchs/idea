@@ -5,6 +5,7 @@
     x-show="show"
     x-trap="show"
     @open-modal.window="show = ($event.detail === name)"
+    @close-modal="show = false"
     @keydown.escape.window="show = false"
     x-transition:enter="ease-out duration-250"
     x-transition:enter-start="opacity-0 -translate-y-4"

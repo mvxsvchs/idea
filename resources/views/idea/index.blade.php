@@ -63,6 +63,7 @@
                         name="title"
                         placeholder="Enter an idea for your title."
                         autofocus
+                        required
                     >
                     </x-form.field>
 
@@ -95,7 +96,7 @@
                     >
                     </x-form.field>
                     <div class="flex justify-end gap-x-5 mt-2">
-                        <button type="button">Cancel</button>
+                        <button type="button" @click="$dispatch('close-modal')">Cancel</button>
                         <button type="submit" class="btn">Create</button>
                     </div>
 

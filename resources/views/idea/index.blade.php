@@ -79,6 +79,8 @@
                                     {{ $status->label() }}
                                 </button>
                             @endforeach
+
+                            <input type="hidden" name="status" :value="status" class="input">
                         </div>
                     </div>
 

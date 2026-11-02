@@ -109,6 +109,23 @@
                         <fieldset class="space-y-3">
                             <legend class="label">Links</legend>
 
+                            <template x-for="(link, index) in links"
+                                      :key="index">
+                                <div class="flex gap-x-2 items-center">
+                                    <input
+                                        name="links[]"
+                                        x-model="links[index]"
+                                        class="input"
+                                    >
+                                    <button type="button"
+                                            aria-label="Remove Link"
+                                            @click="links.splice(index, 1)"
+                                    >
+                                        <x-icons.close/>
+                                    </button>
+                                </div>
+                            </template>
+
                             <div class="flex gap-x-2 items-center">
                                 <input
                                     x-model="newLink"
@@ -120,14 +137,12 @@
                                     spellcheck="false"
                                 >
                                 <button type="button" @click="links.push(newLink.trim()); newLink = '';"
-                                :disabled="newLink.trim().length === 0"
+                                        :disabled="newLink.trim().length === 0"
+                                        aria-label="Add a new Link"
                                 >
                                     <x-icons.close class="rotate-45"/>
                                 </button>
                             </div>
-
-                            <pre x-text="JSON.stringify(links)">
-                            </pre>
                         </fieldset>
                     </div>
 

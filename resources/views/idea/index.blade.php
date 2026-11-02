@@ -95,8 +95,30 @@
                         name="description"
                         type="textarea"
                         placeholder="Describe your idea..."
-                    >
-                    </x-form.field>
+                    />
+
+                    <div>
+                        <fieldset class="space-y-3">
+                            <legend class="label">Links</legend>
+
+                            <div class="flex gap-x-2 items-center">
+                                <input
+                                    x-model="newLink"
+                                    type="url"
+                                    id="new-link"
+                                    placeholder="https://example.com"
+                                    autocomplete="url"
+                                    class="input flex-1"
+                                    spellcheck="false"
+                                >
+                                <button type="button" @click="links.push(newLink)">
+                                    <x-icons.close class="rotate-45"/>
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+
                     <div class="flex justify-end gap-x-5 mt-2">
                         <button type="button" @click="$dispatch('close-modal')">Cancel</button>
                         <button type="submit" class="btn">Create</button>

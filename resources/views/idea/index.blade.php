@@ -1,4 +1,7 @@
 <x-layout>
+    @if ($errors->any())
+        <pre class="text-red-500">{{ print_r($errors->all(), true) }}</pre>
+    @endif
     <div>
         <header class="py-8 md:py12">
             <h1 class="text-3xl font-bold">Ideas</h1>

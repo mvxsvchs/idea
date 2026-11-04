@@ -23,7 +23,8 @@ Route::get('/ideas/{idea}', [IdeaController::class, 'show'])
 
 Route::DELETE('/ideas/{idea}', [IdeaController::class, 'destroy'])
     ->name('idea.destroy')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->can('workWith', 'idea');
 
 
 Route::patch('/steps/{step}', [StepController::class, 'update'])

@@ -18,7 +18,9 @@ Route::post('/ideas', [IdeaController::class, 'store'])
     ->middleware('auth');
 Route::get('/ideas/{idea}', [IdeaController::class, 'show'])
     ->name('idea.show')
-    ->middleware(['auth', 'can:workWith.idea']);
+    ->middleware('auth')
+    ->can('workWith', 'idea');
+
 Route::DELETE('/ideas/{idea}', [IdeaController::class, 'destroy'])
     ->name('idea.destroy')
     ->middleware('auth');

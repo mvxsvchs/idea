@@ -12,7 +12,7 @@
                     class="btn btn-outlined"
                     type="button"
                     data-test="edit-idea-button"
-                    @click="$dispatch('open-modal', 'create-idea')"
+                    @click="$dispatch('open-modal', 'edit-idea')"
                 >
                     <x-icons.external></x-icons.external>
                     Edit Idea
@@ -86,6 +86,6 @@
                 </div>
             @endif
         </div>
-        <x-idea.modal />
+        <x-idea.modal :idea="$idea" />
     </div>
 </x-layout>

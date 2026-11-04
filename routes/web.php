@@ -21,6 +21,11 @@ Route::get('/ideas/{idea}', [IdeaController::class, 'show'])
     ->middleware('auth')
     ->can('workWith', 'idea');
 
+Route::patch('/ideas/{idea}', [IdeaController::class, 'show'])
+    ->name('idea.update')
+    ->middleware('auth')
+    ->can('workWith', 'idea');
+
 Route::DELETE('/ideas/{idea}', [IdeaController::class, 'destroy'])
     ->name('idea.destroy')
     ->middleware('auth')

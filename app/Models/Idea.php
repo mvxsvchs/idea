@@ -19,6 +19,14 @@ class Idea extends Model
     /** @use HasFactory<IdeaFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'status',
+        'links',
+        'image_path',
+    ];
+
     protected $attributes = [
         'status' => IdeaStatus::PENDING->value,
     ];

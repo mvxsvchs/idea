@@ -71,7 +71,8 @@
                 newLink: '',
                 links: [],
                 newStep: '',
-                steps: []
+                steps: [],
+                hasImage: false,
                 }"
                 method="POST"
                 action="{{ route('idea.store') }}"

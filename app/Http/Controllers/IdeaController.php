@@ -46,6 +46,7 @@ class IdeaController extends Controller
      */
     public function store(StoreIdeaRequest $request)
     {
+
         (new CreateIdea)->handle($request->safe()->all());
 
         return to_route('idea.index')

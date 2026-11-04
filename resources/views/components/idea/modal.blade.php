@@ -61,114 +61,124 @@
                 type="textarea"
                 placeholder="Describe your idea..."
                 :value="$idea->description"
-                >
+            >
             </x-form.field>
 
-        <div class="space-y-2">
-            <label for="image" class="label">Featured Image</label>
+            <div class="space-y-2">
+                <label for="image" class="label">Featured Image</label>
 
-            <input type="file" name="image" accept="image/*">
-            <x-form.error name="image"/>
-        </div>
-
-        <div>
-            <fieldset class="space-y-3">
-                <legend class="label">Actionable Steps</legend>
-
-                <template x-for="(step, index) in steps"
-                          :key="index">
-                    <div class="flex gap-x-2 items-center">
-                        <input
-                            name="steps[]"
-                            x-model="steps[index]"
-                            class="input"
-                            readonly
-                        >
-                        <button type="button"
-                                aria-label="Remove Step"
-                                @click="steps.splice(index, 1)"
-                                class="form-muted-icon"
-                        >
-                            <x-icons.close/>
+                @if ($idea->image_path)
+                    <div class="space-y-2">
+                        <img src="{{ asset('storage/' .$idea->image_path) }}" alt=""
+                             class="w-full h-48 object-cover rounded-lg space-y-2">
+                        <button class="btn btn-outlined text-red-500 h-10 w-full" form="delete-image-form">Remove
+                            Image
                         </button>
                     </div>
-                </template>
+                @endif
 
-                <div class="flex gap-x-2 items-center">
-                    <input
-                        x-model="newStep"
-                        type="text"
-                        id="new-step"
-                        data-test="new-step"
-                        placeholder="What needs to be done?"
-                        class="input flex-1"
-                        spellcheck="false"
-                    >
-                    <button type="button"
-                            @click="steps.push(newStep.trim()); newStep = '';"
-                            data-test="submit-new-step-button"
-                            :disabled="newStep.trim().length === 0"
-                            aria-label="Add a new Step"
-                            class="form-muted-icon"
-                    >
-                        <x-icons.close class="rotate-45"/>
-                    </button>
-                </div>
-            </fieldset>
-        </div>
+                <input type="file" name="image" accept="image/*">
+                <x-form.error name="image"/>
+            </div>
 
+            <div>
+                <fieldset class="space-y-3">
+                    <legend class="label">Actionable Steps</legend>
 
-        <div>
-            <fieldset class="space-y-3">
-                <legend class="label">Links</legend>
+                    <template x-for="(step, index) in steps"
+                              :key="index">
+                        <div class="flex gap-x-2 items-center">
+                            <input
+                                name="steps[]"
+                                x-model="steps[index]"
+                                class="input"
+                                readonly
+                            >
+                            <button type="button"
+                                    aria-label="Remove Step"
+                                    @click="steps.splice(index, 1)"
+                                    class="form-muted-icon"
+                            >
+                                <x-icons.close/>
+                            </button>
+                        </div>
+                    </template>
 
-                <template x-for="(link, index) in links"
-                          :key="index">
                     <div class="flex gap-x-2 items-center">
                         <input
-                            name="links[]"
-                            x-model="links[index]"
-                            class="input"
+                            x-model="newStep"
+                            type="text"
+                            id="new-step"
+                            data-test="new-step"
+                            placeholder="What needs to be done?"
+                            class="input flex-1"
+                            spellcheck="false"
                         >
                         <button type="button"
-                                aria-label="Remove Link"
-                                @click="links.splice(index, 1)"
+                                @click="steps.push(newStep.trim()); newStep = '';"
+                                data-test="submit-new-step-button"
+                                :disabled="newStep.trim().length === 0"
+                                aria-label="Add a new Step"
                                 class="form-muted-icon"
                         >
-                            <x-icons.close/>
+                            <x-icons.close class="rotate-45"/>
                         </button>
                     </div>
-                </template>
-
-                <div class="flex gap-x-2 items-center">
-                    <input
-                        x-model="newLink"
-                        type="url"
-                        id="new-link"
-                        data-test="new-link"
-                        placeholder="https://example.com"
-                        autocomplete="url"
-                        class="input flex-1"
-                        spellcheck="false"
-                    >
-                    <button type="button"
-                            @click="links.push(newLink.trim()); newLink = '';"
-                            data-test="submit-new-link-button"
-                            :disabled="newLink.trim().length === 0"
-                            aria-label="Add a new Link"
-                            class="form-muted-icon"
-                    >
-                        <x-icons.close class="rotate-45"/>
-                    </button>
-                </div>
-            </fieldset>
-        </div>
+                </fieldset>
+            </div>
 
 
-        <div class="flex justify-end gap-x-5 mt-2">
-            <button type="button" @click="$dispatch('close-modal')">Cancel</button>
-            <button type="submit" class="btn">{{ $idea->exists ? 'Update' : 'Create' }}</button>
-        </div>
+            <div>
+                <fieldset class="space-y-3">
+                    <legend class="label">Links</legend>
+
+                    <template x-for="(link, index) in links"
+                              :key="index">
+                        <div class="flex gap-x-2 items-center">
+                            <input
+                                name="links[]"
+                                x-model="links[index]"
+                                class="input"
+                            >
+                            <button type="button"
+                                    aria-label="Remove Link"
+                                    @click="links.splice(index, 1)"
+                                    class="form-muted-icon"
+                            >
+                                <x-icons.close/>
+                            </button>
+                        </div>
+                    </template>
+
+                    <div class="flex gap-x-2 items-center">
+                        <input
+                            x-model="newLink"
+                            type="url"
+                            id="new-link"
+                            data-test="new-link"
+                            placeholder="https://example.com"
+                            autocomplete="url"
+                            class="input flex-1"
+                            spellcheck="false"
+                        >
+                        <button type="button"
+                                @click="links.push(newLink.trim()); newLink = '';"
+                                data-test="submit-new-link-button"
+                                :disabled="newLink.trim().length === 0"
+                                aria-label="Add a new Link"
+                                class="form-muted-icon"
+                        >
+                            <x-icons.close class="rotate-45"/>
+                        </button>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <div class="flex justify-end gap-x-5 mt-2">
+                <button type="button" @click="$dispatch('close-modal')">Cancel</button>
+                <button type="submit" class="btn">{{ $idea->exists ? 'Update' : 'Create' }}</button>
+            </div>
 
         </div>
     </form>

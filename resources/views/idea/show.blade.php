@@ -40,9 +40,11 @@
                 <div class="text-muted-foreground-dark text-sm">{{ $idea->created_at->diffForHumans() }}</div>
             </div>
 
-            <x-card class="mt-6">
-                <div class="text-foreground-dark max-w-none cursor-pointer">{{ $idea->description }}</div>
-            </x-card>
+            @if($idea->description)
+                <x-card class="mt-6">
+                    <div class="text-foreground-dark max-w-none cursor-pointer">{{ $idea->description }}</div>
+                </x-card>
+            @endif
 
             @if($idea->steps->count())
                 <div>
@@ -86,6 +88,6 @@
                 </div>
             @endif
         </div>
-        <x-idea.modal :idea="$idea" />
+        <x-idea.modal :idea="$idea"/>
     </div>
 </x-layout>

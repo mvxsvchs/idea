@@ -71,8 +71,11 @@
                     <div class="space-y-2">
                         <img src="{{ asset('storage/' .$idea->image_path) }}" alt=""
                              class="w-full h-48 object-cover rounded-lg space-y-2">
-                        <button class="btn btn-outlined text-red-500 h-10 w-full" form="delete-image-form">Remove
-                            Image
+                        <button
+                            type="submit"
+                            form="delete-image-form"
+                            class="btn btn-outlined text-red-500 h-10 w-full">
+                            Remove Image
                         </button>
                     </div>
                 @endif
@@ -183,9 +186,11 @@
         </div>
     </form>
 
-    <form method="POST" action="" id="delete-image-form">
-        @csrf
-        @method('DELETE')
-    </form>
+    @if ($idea->image_path)
+        <form method="POST" action="{{ route('idea.image.destroy', $idea) }}" id="delete-image-form">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endif
 
 </x-modal>

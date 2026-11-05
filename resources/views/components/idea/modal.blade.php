@@ -182,4 +182,10 @@
 
         </div>
     </form>
+
+    <form method="POST" action="" id="delete-image-form">
+        @csrf
+        @method('DELETE')
+    </form>
+
 </x-modal>

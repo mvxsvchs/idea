@@ -31,6 +31,10 @@ Route::DELETE('/ideas/{idea}', [IdeaController::class, 'destroy'])
     ->middleware('auth')
     ->can('workWith', 'idea');
 
+Route::DELETE('/ideas/{idea}/image', [IdeaController::class, 'destroyImage'])
+    ->name('idea.destroyImage')
+    ->middleware('auth');
+
 
 Route::patch('/steps/{step}', [StepController::class, 'update'])
     ->name('step.update')
